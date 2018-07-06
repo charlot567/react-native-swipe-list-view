@@ -44,6 +44,10 @@ class SwipeRow extends Component {
 			hiddenWidth: 0
 		};
 		this._translateX = new Animated.Value(0);
+
+		this.onLongPress = props.onLongPress;
+		this.onPressOut = props.onPressOut;
+		this.onPressIn = props.onPressIn;
 	}
 
 	componentWillMount() {
@@ -248,6 +252,8 @@ class SwipeRow extends Component {
 			<TouchableOpacity
 				activeOpacity={1}
 				onPress={ _ => this.onRowPress() }
+				onLongPress={ data => this.onLongPress(data) }
+
 			>
 				{this.props.children[1]}
 			</TouchableOpacity>
