@@ -253,7 +253,11 @@ class SwipeRow extends Component {
 				activeOpacity={1}
 				onPress={ _ => this.onRowPress() }
 				onLongPress={ data => this.onLongPress(data) }
-
+				onPressOut={ data => this.onPressOut(data) }
+				onPressIn={ data => {
+					if(this.onPressIn)
+						this.onPressIn(data)
+				} }
 			>
 				{this.props.children[1]}
 			</TouchableOpacity>
